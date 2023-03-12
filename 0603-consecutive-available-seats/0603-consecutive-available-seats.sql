@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+WITH new_table as (SELECT seat_id, free, (LAG(free) OVER (ORDER BY seat_id ASC)) AS "lag", (LEAD(free) OVER (ORDER BY seat_id ASC)) AS "lead" FROM Cinema) SELECT seat_id FROM new_table WHERE `free`=1 AND (`lag`=1 OR `lead`=1) ORDER BY seat_id ASC; 
