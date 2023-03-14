@@ -1,0 +1,2 @@
+/* Write your T-SQL query statement below */
+WITH new_table AS (SELECT id, movie, description, rating, CAST(CAST(id AS FLOAT)/2 AS VARCHAR(52)) AS strhalf FROM Cinema) SELECT id, movie, description, rating FROM new_table WHERE strhalf LIKE '%.5' AND description!='boring' ORDER by rating DESC;
