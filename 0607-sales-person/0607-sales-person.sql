@@ -1,0 +1,1 @@
+WITH new_table_2 AS (WITH new_table AS (SELECT sales_id, name AS color FROM Orders INNER JOIN Company ON Orders.com_id = Company.com_id) SELECT name, color FROM new_table RIGHT JOIN SalesPerson ON SalesPerson.sales_id = new_table.sales_id) SELECT DISTINCT(name) AS name FROM new_table_2 WHERE name NOT IN (SELECT name FROM new_table_2 WHERE color="RED");
