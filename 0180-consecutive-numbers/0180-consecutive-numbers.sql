@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+WITH new_table_2 AS (WITH new_table AS (SELECT num, LEAD(num) OVER (ORDER BY id ASC) AS "front", LAG(num) OVER (ORDER BY id ASC) AS "back" FROM Logs) SELECT num AS "ConsecutiveNums" FROM new_table WHERE front=back AND front=num AND num=back) SELECT DISTINCT(ConsecutiveNums) FROM new_table_2;
