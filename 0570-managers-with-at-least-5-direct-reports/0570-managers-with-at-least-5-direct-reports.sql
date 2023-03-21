@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+WITH nt AS (WITH manager AS (SELECT id AS "manId", name AS "managerName" FROM Employee WHERE id IN (SELECT DISTINCT(managerId) FROM Employee)) SELECT * FROM Employee INNER JOIN manager ON manager.manId=Employee.managerId) SELECT managerName AS "name" FROM nt GROUP BY manID HAVING COUNT(manID)>=5;
