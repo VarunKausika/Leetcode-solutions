@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+WITH nt2 AS (WITH nt AS (SELECT C.id AS "cId", C.name, V.id AS "VoterId", V.candidateId FROM Candidate C INNER JOIN Vote V ON C.id=V.candidateId) SELECT name, COUNT(candidateId) AS "n_votes" FROM nt GROUP BY name) SELECT name FROM nt2 WHERE n_votes=(SELECT MAX(n_votes) FROM nt2);
